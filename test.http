@@ -1,0 +1,151 @@
+
+### get trips
+GET http://127.0.0.1:3000/api/clientes
+content-type: application/json
+
+### get trips
+GET http://127.0.0.1:3000/api/productos
+content-type: application/json
+
+### get trips
+GET http://127.0.0.1:3000/api/productos/671d9db61beeb2310e4a89d2
+content-type: application/json
+
+### get trips
+GET http://127.0.0.1:3000/api/salidas
+content-type: application/json
+
+### get trips
+GET http://127.0.0.1:3000/api/salidas
+content-type: application/json
+
+
+### get trips
+GET http://127.0.0.1:3000/api/ventas
+content-type: application/json
+
+
+### register user
+POST http://127.0.0.1:3000/api/register
+content-type: application/json
+
+{
+    "username": "alejandro",
+    "password": "alelor$$"
+}
+
+### login
+POST http://127.0.0.1:3000/api/login
+content-type: application/json
+
+{
+    "username": "alejandro",
+    "password": "alelor$$"
+}
+
+### post trip
+POST http://127.0.0.1:3000/api/clientes
+content-type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
+
+{
+    "nombre": "Farallones",
+    "direccion": "Carretera litoral local 13, el majahual, La libertad",
+    "telefono": "74323123"
+}
+
+### post proveedor
+POST http://127.0.0.1:3000/api/proveedores
+content-type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
+
+{
+    "nombre": "Juana and Co.",
+    "direccion": "Jiquilisco, Usulutan",
+    "telefono": "79148719",
+    "email": "proveedor.sv@gmail.com"
+}
+
+### post proveedor
+POST http://127.0.0.1:3000/api/productos
+content-type: application/json
+//auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
+
+{
+    "nombre": "Concha Grande",
+    
+}
+
+### post salida
+POST http://127.0.0.1:3000/api/salidas
+content-type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
+
+{
+    "product_id": "664ccdfdd08a0f8d6377ba0f",
+    "cantidad": 50,
+    "motivo": "El producto se arruino"
+}
+
+
+### post venta
+POST http://127.0.0.1:3000/api/ventas
+content-type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
+
+{
+    "producto_id": "671d9db61beeb2310e4a89d2",
+    "entrada_id": "671da9363aa5c847092ec9de",
+    "cantidad": 1,
+    "precio_venta": 3.6,
+    "pagos": [],
+    "fecha_venta": "2024-05-26",
+    "estado": "pendiente",
+    "cliente_id": "672d462dfecdf31c02599ce1"
+}
+
+### post ventas multiple
+POST http://127.0.0.1:3000/api/ventas/multiple
+content-type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
+
+{
+    "ventas": [
+        {
+            "producto_id": "671d9db61beeb2310e4a89d2",
+            "entrada_id": "664ccdfdd08a0f8d6377ba0f",
+            "cantidad": 50,
+            "precio_venta": 0.75,
+            "pagos": [],
+            "cliente_id": "672d462dfecdf31c02599ce1" // Agregado campo id del cliente
+        },
+        {
+            "producto_id": "671d9db61beeb2310e4a89d2",
+            "entrada_id": "664ccdfdd08a0f8d6377ba10",
+            "cantidad": 30,
+            "precio_venta": 1.00,
+            "pagos": [],
+            "cliente_id": "672d462dfecdf31c02599ce1" // Agregado campo id del cliente
+        }
+    ]
+}
+
+
+### post entrada
+POST http://127.0.0.1:3000/api/ventas/664cce3bd08a0f8d6377ba19/pagos
+content-type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
+
+{
+    "fecha": "2024-05-21",
+    "monto": 25
+}
+
+### post entrada
+PUT  http://127.0.0.1:3000/api/ventas/664cce3bd08a0f8d6377ba19/estado
+content-type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
+
+{
+    "estado_pago": "parcial"
+}
