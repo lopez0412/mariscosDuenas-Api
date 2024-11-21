@@ -152,20 +152,23 @@ router.get('/ventas/:id', async (req, res) => {
 });
 
 // Filtrar ventas por rango de fechas
-router.get('/ventas/rango-fechas', async (req, res) => {
+router.get('/ventasReport/rango-fechas', async (req, res) => {
   const { fechaInicio, fechaFin } = req.query;
 
   // Validar fechas
-  if (!fechaInicio || !fechaFin || isNaN(new Date(fechaInicio)) || isNaN(new Date(fechaFin))) {
-    return res.status(400).json({ message: 'Se requieren fechas válidas: fechaInicio y fechaFin' });
+  if (!fechaInicio || !fechaFin) {
+    return res.status(400).json({ message: 'Se requieren ambas fechas: fechaInicio y fechaFin' });
+  }
+
+  const fechaInicioDate = new Date(fechaInicio);
+  const fechaFinDate = new Date(fechaFin);
+
+  if (isNaN(fechaInicioDate) || isNaN(fechaFinDate)) {
+    return res.status(400).json({ message: 'Fechas inválidas' });
   }
 
   try {
-    // Convertir cadenas a objetos de fecha
-    const fechaInicioDate = new Date(fechaInicio);
-    const fechaFinDate = new Date(fechaFin);
-
-    // Buscar ventas en el rango
+    // Consulta con filtro por fecha
     const ventas = await Venta.find({
       fecha_venta: {
         $gte: fechaInicioDate,
@@ -173,11 +176,10 @@ router.get('/ventas/rango-fechas', async (req, res) => {
       }
     });
 
-    // Responder con los resultados
     res.status(200).json(ventas);
   } catch (error) {
-    console.error('Error al obtener las ventas:', error); // Log para el servidor
-    res.status(500).json({ message: 'Error al obtener las ventas por rango de fechas' });
+    console.error('Error al obtener las ventas:', error);
+    res.status(500).json({ message: 'Error al obtener las ventas', error });
   }
 });
 

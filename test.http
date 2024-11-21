@@ -20,7 +20,7 @@ GET https://api.mariscosduenas.com/api/salidas
 content-type: application/json
 
 ### get ventas por rango de fecha
-GET https://api.mariscosduenas.com/api/ventas/rango-fechas?fechaInicio=2024-11-01&fechaFin=2024-11-20
+GET http://127.0.0.1:3000/api/ventasReport/rango-fechas?fechaInicio=2024-11-01&fechaFin=2024-11-20
 content-type: application/json
 
 
