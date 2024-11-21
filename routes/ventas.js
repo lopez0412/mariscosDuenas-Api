@@ -151,6 +151,29 @@ router.get('/ventas/:id', async (req, res) => {
   }
 });
 
+// Filtrar ventas por rango de fechas
+router.get('/ventas/rango-fechas', async (req, res) => {
+  const { fechaInicio, fechaFin } = req.query;
+
+  if (!fechaInicio || !fechaFin) {
+    return res.status(400).json({ message: 'Se requieren ambas fechas: fechaInicio y fechaFin' });
+  }
+
+  try {
+    const ventas = await Venta.find({
+      fecha_venta: {
+        $gte: new Date(fechaInicio),
+        $lte: new Date(fechaFin)
+      }
+    });
+
+    res.status(200).json(ventas);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al obtener las ventas por rango de fechas', error });
+  }
+});
+
+
 // Actualizar una venta
 router.put('/ventas/:id', async (req, res) => {
   try {

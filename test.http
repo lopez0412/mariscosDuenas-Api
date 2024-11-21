@@ -1,32 +1,32 @@
 
 ### get trips
-GET http://127.0.0.1:3000/api/clientes
+GET https://api.mariscosduenas.com/api/clientes
 content-type: application/json
 
 ### get trips
-GET http://127.0.0.1:3000/api/productos
+GET https://api.mariscosduenas.com/api/productos
 content-type: application/json
 
 ### get trips
-GET http://127.0.0.1:3000/api/productos/671d9db61beeb2310e4a89d2
+GET https://api.mariscosduenas.com/api/productos/671d9db61beeb2310e4a89d2
 content-type: application/json
 
 ### get trips
-GET http://127.0.0.1:3000/api/salidas
+GET https://api.mariscosduenas.com/api/salidas
 content-type: application/json
 
 ### get trips
-GET http://127.0.0.1:3000/api/salidas
+GET https://api.mariscosduenas.com/api/salidas
 content-type: application/json
 
 
 ### get trips
-GET http://127.0.0.1:3000/api/ventas
+GET https://api.mariscosduenas.com/api/ventas
 content-type: application/json
 
 
 ### register user
-POST http://127.0.0.1:3000/api/register
+POST https://api.mariscosduenas.com/api/register
 content-type: application/json
 
 {
@@ -35,7 +35,7 @@ content-type: application/json
 }
 
 ### login
-POST http://127.0.0.1:3000/api/login
+POST https://api.mariscosduenas.com/api/login
 content-type: application/json
 
 {
@@ -44,7 +44,7 @@ content-type: application/json
 }
 
 ### post trip
-POST http://127.0.0.1:3000/api/clientes
+POST https://api.mariscosduenas.com/api/clientes
 content-type: application/json
 auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
 
@@ -55,7 +55,7 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJ
 }
 
 ### post proveedor
-POST http://127.0.0.1:3000/api/proveedores
+POST https://api.mariscosduenas.com/api/proveedores
 content-type: application/json
 auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
 
@@ -67,7 +67,7 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJ
 }
 
 ### post proveedor
-POST http://127.0.0.1:3000/api/productos
+POST https://api.mariscosduenas.com/api/productos
 content-type: application/json
 //auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
 
@@ -77,7 +77,7 @@ content-type: application/json
 }
 
 ### post salida
-POST http://127.0.0.1:3000/api/salidas
+POST https://api.mariscosduenas.com/api/salidas
 content-type: application/json
 auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
 
@@ -89,7 +89,7 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJ
 
 
 ### post venta
-POST http://127.0.0.1:3000/api/ventas
+POST https://api.mariscosduenas.com/api/ventas
 content-type: application/json
 auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
 
@@ -105,7 +105,7 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJ
 }
 
 ### post ventas multiple
-POST http://127.0.0.1:3000/api/ventas/multiple
+POST https://api.mariscosduenas.com/api/ventas/multiple
 content-type: application/json
 auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
 
@@ -132,7 +132,7 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJ
 
 
 ### post entrada
-POST http://127.0.0.1:3000/api/ventas/664cce3bd08a0f8d6377ba19/pagos
+POST https://api.mariscosduenas.com/api/ventas/664cce3bd08a0f8d6377ba19/pagos
 content-type: application/json
 auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
 
@@ -142,7 +142,7 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJ
 }
 
 ### post entrada
-PUT  http://127.0.0.1:3000/api/ventas/664cce3bd08a0f8d6377ba19/estado
+PUT  https://api.mariscosduenas.com/api/ventas/664cce3bd08a0f8d6377ba19/estado
 content-type: application/json
 auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
 
