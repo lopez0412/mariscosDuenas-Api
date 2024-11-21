@@ -193,6 +193,37 @@ router.put('/ventas/:id', async (req, res) => {
   }
 });
 
+// Ruta para agregar un pago a una venta y actualizar su estado
+router.put('/ventas/:id/pago', async (req, res) => {
+  try {
+    const { monto } = req.body;
+
+    if (monto === undefined) {
+      return res.status(400).json({ message: 'El monto del pago es requerido' });
+    }
+
+    const venta = await Venta.findById(req.params.id);
+    if (!venta) {
+      return res.status(404).json({ message: 'Venta no encontrada' });
+    }
+
+    // Agregar el nuevo pago
+    venta.pagos.push({ monto });
+
+    // Verificar si el total de pagos cubre el precio de venta
+    const totalPagos = venta.pagos.reduce((acc, pago) => acc + pago.monto, 0);
+    if (totalPagos >= venta.precio_venta) {
+      venta.estado = 'completada'; // Cambiar el estado a completada si ya se pagó el total
+    }
+
+    const ventaActualizada = await venta.save();
+    res.status(200).json(ventaActualizada);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al agregar el pago a la venta', error });
+  }
+});
+
+
 // Eliminar una venta
 router.delete('/ventas/:id', async (req, res) => {
   try {
