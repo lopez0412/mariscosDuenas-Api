@@ -20,7 +20,7 @@ GET https://api.mariscosduenas.com/api/salidas
 content-type: application/json
 
 ### get ventas por rango de fecha
-GET https://api.mariscosduenas.com/api/ventasReport/rango-fechas?fechaInicio=2024-11-01&fechaFin=2024-11-22
+GET https://api.mariscosduenas.com/api/ventasReport/rango-fechas?fechaInicio=2024-11-01&fechaFin=2024-11-20
 content-type: application/json
 
 
@@ -106,7 +106,7 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJ
     "precio_venta": 3.6,
     "pagos": [],
     "estado": "pendiente",
-    "cliente_id": "664b7ce21322fdbb387eddf8"
+    "cliente_id": "672d462dfecdf31c02599ce1"
 }
 
 ### post ventas multiple

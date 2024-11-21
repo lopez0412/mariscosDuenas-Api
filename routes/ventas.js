@@ -174,13 +174,13 @@ router.get('/ventasReport/rango-fechas', async (req, res) => {
   }
 
   try {
-    // Consulta con filtro por fecha
+    // Consulta con filtro por fecha y populate del cliente
     const ventas = await Venta.find({
       fecha_venta: {
         $gte: fechaInicioDate,
         $lte: fechaFinDate
       }
-    });
+    }).populate('cliente_id'); // Agregar populate para el cliente
 
     res.status(200).json(ventas);
   } catch (error) {
