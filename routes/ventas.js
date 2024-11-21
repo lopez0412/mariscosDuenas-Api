@@ -3,8 +3,6 @@ const router = express.Router();
 const Venta = require('../model/ventas'); // Asegúrate de ajustar la ruta según tu estructura de archivos
 const Producto = require('../model/productos'); // Importar el modelo de Producto
 
-
-
 // Ruta para crear múltiples ventas
 router.post('/ventas/multiple', async (req, res) => {
   try {
@@ -40,12 +38,16 @@ router.post('/ventas/multiple', async (req, res) => {
         return res.status(400).json({ message: `No hay suficiente cantidad en la entrada para realizar la venta de ${cantidad} unidades del producto ${producto_id}` });
       }
 
+      // Calcular el total de la venta
+      const total = cantidad * precio_venta;
+
       // Crear la nueva venta
       const nuevaVenta = new Venta({
         producto_id,
         entrada_id, // Guardar entrada_id
         cantidad,
         precio_venta,
+        total, // Agregar el total calculado
         pagos,
         cliente_id // Agregar el ID del cliente a la venta
       });
@@ -98,12 +100,16 @@ router.post('/ventas', async (req, res) => {
       return res.status(400).json({ message: 'No hay suficiente cantidad en la entrada para realizar la venta' });
     }
 
+    // Calcular el total de la venta
+    const total = cantidad * precio_venta;
+
     // Crear la nueva venta
     const nuevaVenta = new Venta({
       producto_id,
       entrada_id, // Guardar entrada_id
       cantidad,
       precio_venta,
+      total, // Agregar el total calculado
       pagos,
       cliente_id // Agregar el ID del cliente a la venta
     });
@@ -183,14 +189,15 @@ router.get('/ventasReport/rango-fechas', async (req, res) => {
   }
 });
 
-
 // Actualizar una venta
 router.put('/ventas/:id', async (req, res) => {
   try {
     const { cantidad, precio_venta, pagos } = req.body;
+    const total = cantidad * precio_venta; // Calcular el total
+
     const ventaActualizada = await Venta.findByIdAndUpdate(
       req.params.id,
-      { cantidad, precio_venta, pagos },
+      { cantidad, precio_venta, total, pagos }, // Incluir el total en la actualización
       { new: true }
     );
 
@@ -232,7 +239,6 @@ router.put('/ventas/:id/pago', async (req, res) => {
     res.status(500).json({ message: 'Error al agregar el pago a la venta', error });
   }
 });
-
 
 // Eliminar una venta
 router.delete('/ventas/:id', async (req, res) => {
