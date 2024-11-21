@@ -14,8 +14,8 @@ const ventaSchema = new Schema({
   }],
   estado: { 
     type: String, 
-    enum: ['pendiente', 'completada', 'cancelada'], // Estados posibles de la venta
-    default: 'pendiente' 
+    enum: ['PENDIENTE', 'COMPLETADA', 'CANCELADA'], // Estados posibles de la venta
+    default: 'PENDIENTE' 
   },
   fecha_venta: { type: Date, default: Date.now }, // Fecha de la venta
   cliente_id: { type: Schema.Types.ObjectId, ref: 'Clientes', required: true } // Referencia al cliente

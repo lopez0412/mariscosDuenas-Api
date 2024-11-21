@@ -230,7 +230,7 @@ router.put('/ventas/:id/pago', async (req, res) => {
     // Verificar si el total de pagos cubre el precio de venta
     const totalPagos = venta.pagos.reduce((acc, pago) => acc + pago.monto, 0);
     if (totalPagos >= venta.precio_venta) {
-      venta.estado = 'completada'; // Cambiar el estado a completada si ya se pagó el total
+      venta.estado = 'COMPLETADA'; // Cambiar el estado a completada si ya se pagó el total
     }
 
     const ventaActualizada = await venta.save();
