@@ -153,23 +153,31 @@ router.get('/ventas/:id', async (req, res) => {
 
 // Filtrar ventas por rango de fechas
 router.get('/ventas/rango-fechas', async (req, res) => {
-  const { fechaInicio, fechaFin } = req.body;
+  const { fechaInicio, fechaFin } = req.query;
 
-  if (!fechaInicio || !fechaFin) {
-    return res.status(400).json({ message: 'Se requieren ambas fechas: fechaInicio y fechaFin' });
+  // Validar fechas
+  if (!fechaInicio || !fechaFin || isNaN(new Date(fechaInicio)) || isNaN(new Date(fechaFin))) {
+    return res.status(400).json({ message: 'Se requieren fechas válidas: fechaInicio y fechaFin' });
   }
 
   try {
+    // Convertir cadenas a objetos de fecha
+    const fechaInicioDate = new Date(fechaInicio);
+    const fechaFinDate = new Date(fechaFin);
+
+    // Buscar ventas en el rango
     const ventas = await Venta.find({
       fecha_venta: {
-        $gte: new Date(fechaInicio),
-        $lte: new Date(fechaFin)
+        $gte: fechaInicioDate,
+        $lte: fechaFinDate
       }
     });
 
+    // Responder con los resultados
     res.status(200).json(ventas);
   } catch (error) {
-    res.status(500).json({ message: 'Error al obtener las ventas por rango de fechas', error });
+    console.error('Error al obtener las ventas:', error); // Log para el servidor
+    res.status(500).json({ message: 'Error al obtener las ventas por rango de fechas' });
   }
 });
 
