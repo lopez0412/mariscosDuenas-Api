@@ -153,7 +153,7 @@ router.get('/ventas/:id', async (req, res) => {
 
 // Filtrar ventas por rango de fechas
 router.get('/ventas/rango-fechas', async (req, res) => {
-  const { fechaInicio, fechaFin } = req.query;
+  const { fechaInicio, fechaFin } = req.body;
 
   if (!fechaInicio || !fechaFin) {
     return res.status(400).json({ message: 'Se requieren ambas fechas: fechaInicio y fechaFin' });

@@ -19,6 +19,16 @@ content-type: application/json
 GET https://api.mariscosduenas.com/api/salidas
 content-type: application/json
 
+### get ventas por rango de fecha
+GET https://api.mariscosduenas.com/api/ventas/rango-fechas
+content-type: application/json
+
+{
+    "fechaInicio": "2024-10-01",
+    "fechaFin": "2024-12-31"
+}
+
+
 
 ### get trips
 GET https://api.mariscosduenas.com/api/ventas
