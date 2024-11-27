@@ -3,6 +3,10 @@
 GET https://api.mariscosduenas.com/api/clientes
 content-type: application/json
 
+### get cuenta pendiente
+GET https://api.mariscosduenas.com/api/ventas/pendientes/664b7ce21322fdbb387eddf8
+content-type: application/json
+
 ### get trips
 GET https://api.mariscosduenas.com/api/productos
 content-type: application/json

@@ -198,7 +198,7 @@ router.get('/ventas/pendientes/:clienteId', async (req, res) => {
     const ventasPendientes = await Venta.find({
       cliente_id: clienteId,
       estado: 'PENDIENTE'
-    }).populate('producto_id'); // Agregar populate para el producto
+    }).populate('producto_id', 'nombre'); // Agregar populate para el producto
 
     res.status(200).json(ventasPendientes);
   } catch (error) {
