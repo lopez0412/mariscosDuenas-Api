@@ -189,6 +189,24 @@ router.get('/ventasReport/rango-fechas', async (req, res) => {
   }
 });
 
+// Ruta para obtener ventas PENDIENTES por ID de cliente
+router.get('/ventas/pendientes/:clienteId', async (req, res) => {
+  try {
+    const { clienteId } = req.params;
+
+    // Buscar ventas pendientes para el cliente especificado
+    const ventasPendientes = await Venta.find({
+      cliente_id: clienteId,
+      estado: 'PENDIENTE'
+    }).populate('producto_id'); // Agregar populate para el producto
+
+    res.status(200).json(ventasPendientes);
+  } catch (error) {
+    res.status(500).json({ message: 'Error al obtener las ventas pendientes', error });
+  }
+});
+
+
 // Actualizar una venta
 router.put('/ventas/:id', async (req, res) => {
   try {
