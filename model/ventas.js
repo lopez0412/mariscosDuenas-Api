@@ -3,11 +3,13 @@ const Schema = mongoose.Schema;
 
 // Esquema para Ventas
 const ventaSchema = new Schema({
-  producto_id: { type: Schema.Types.ObjectId, ref: 'Productos', required: true }, // Referencia al producto
-  entrada_id: { type: Schema.Types.ObjectId, ref: 'Productos', required: true }, // Referencia a la entrada del producto
-  cantidad: { type: Number, required: true }, // Cantidad vendida
-  precio_venta: { type: Number, required: true }, // Precio de venta de la entrada
-  total: { type: Number },
+  productos: [{ // Cambiado para permitir múltiples productos
+    producto_id: { type: Schema.Types.ObjectId, ref: 'Productos', required: true }, // Referencia al producto
+    entrada_id: { type: Schema.Types.ObjectId, ref: 'Productos', required: true }, // Referencia a la entrada del producto
+    cantidad: { type: Number, required: true }, // Cantidad vendida
+    precio_venta: { type: Number, required: true } // Precio de venta de la entrada
+  }],
+  total: { type: Number }, // Total de la venta
   pagos: [{ 
     monto: { type: Number, required: true }, // Monto del pago
     fecha: { type: Date, default: Date.now } // Fecha del pago

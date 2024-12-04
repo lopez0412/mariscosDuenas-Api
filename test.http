@@ -3,16 +3,15 @@
 GET https://api.mariscosduenas.com/api/clientes
 content-type: application/json
 
-### get cuenta pendiente
-GET https://api.mariscosduenas.com/api/ventas/pendientes/664b7ce21322fdbb387eddf8
-content-type: application/json
+### get clientes payment account
+GET https://api.mariscosduenas.com/api/ventas/pendientes/671d9db61beeb2310e4a89d2
 
 ### get trips
 GET https://api.mariscosduenas.com/api/productos
 content-type: application/json
 
 ### get trips
-GET https://api.mariscosduenas.com/api/productos/671d9db61beeb2310e4a89d2
+GET https://api.mariscosduenas.com/api/productos/672d8ddb283c69888fc6b2b4
 content-type: application/json
 
 ### get trips
@@ -24,9 +23,12 @@ GET https://api.mariscosduenas.com/api/salidas
 content-type: application/json
 
 ### get ventas por rango de fecha
-GET https://api.mariscosduenas.com/api/ventasReport/rango-fechas?fechaInicio=2024-11-01&fechaFin=2024-11-22
+GET https://api.mariscosduenas.com/api/ventasReport/rango-fechas?fechaInicio=2024-12-01&fechaFin=2024-12-22
 content-type: application/json
 
+### get ventas por rango de fecha
+GET http://127.0.0.1:3000/api/ventasReport/rango-fechas?fechaInicio=2024-12-01&fechaFin=2024-12-05
+content-type: application/json
 
 
 
@@ -99,42 +101,59 @@ auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJ
 
 
 ### post venta
-POST https://api.mariscosduenas.com/api/ventas
+POST http://127.0.0.1:3000/api/ventas
 content-type: application/json
 auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
 
 {
-    "producto_id": "671d9db61beeb2310e4a89d2",
-    "entrada_id": "67395b81494fe664c3c54238",
-    "cantidad": 1,
-    "precio_venta": 3.6,
+    "productos": [
+        {
+            "producto_id": "671d9db61beeb2310e4a89d2",
+            "entrada_id": "673966cb494fe664c3c546c6",
+            "cantidad": 50,
+            "precio_venta": 3.6
+        },
+        {
+            "producto_id": "672d8ddb283c69888fc6b2b4",
+            "entrada_id": "673966e3494fe664c3c54703",
+            "cantidad": 50,
+            "precio_venta": 20
+        }
+    ],
     "pagos": [],
-    "estado": "pendiente",
+    "estado": "PENDIENTE",
     "cliente_id": "672d462dfecdf31c02599ce1"
 }
 
 ### post ventas multiple
 POST https://api.mariscosduenas.com/api/ventas/multiple
 content-type: application/json
-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjRiN2I0NTEzMjJmZGJiMzg3ZWRkZjMiLCJ1c2VybmFtZSI6ImFsZWphbmRybyIsInJvbGVzIjpbIkFkbWluIiwiVXNlciJdLCJpYXQiOjE3MTYyMjMwNjUsImV4cCI6MTcxNjI1MTg2NX0.4M6lqpaIVlYlYiFAl_c_6oznumGDdy9g4Hx897YfZa8
 
 {
     "ventas": [
         {
-            "producto_id": "671d9db61beeb2310e4a89d2",
-            "entrada_id": "664ccdfdd08a0f8d6377ba0f",
-            "cantidad": 50,
-            "precio_venta": 0.75,
+            "productos": [
+                {
+                    "producto_id": "671d9db61beeb2310e4a89d2",
+                    "entrada_id": "664ccdfdd08a0f8d6377ba0f",
+                    "cantidad": 50,
+                    "precio_venta": 0.75
+                }
+            ],
             "pagos": [],
-            "cliente_id": "672d462dfecdf31c02599ce1" // Agregado campo id del cliente
+            "cliente_id": "664b7ce21322fdbb387eddf8"
         },
         {
-            "producto_id": "671d9db61beeb2310e4a89d2",
-            "entrada_id": "664ccdfdd08a0f8d6377ba10",
-            "cantidad": 30,
-            "precio_venta": 1.00,
+            "productos": [
+                {
+                    "producto_id": "671d9db61beeb2310e4a89d2",
+                    "entrada_id": "664ccdfdd08a0f8d6377ba10",
+                    "cantidad": 30,
+                    "precio_venta": 1.00
+                }
+            ],
             "pagos": [],
-            "cliente_id": "672d462dfecdf31c02599ce1" // Agregado campo id del cliente
+            "cliente_id": "664b7ce21322fdbb387eddf8"
         }
     ]
 }
