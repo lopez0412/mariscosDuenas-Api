@@ -133,7 +133,16 @@ router.get('/ventas/pendientes/:clienteId', async (req, res) => {
       estado: 'PENDIENTE'
     }).populate('productos.producto_id', 'nombre'); // Agregar populate para el producto
 
-    res.status(200).json(ventasPendientes);
+    // Calcular el total de lo pagado para cada venta pendiente
+    const ventasConTotalPagado = ventasPendientes.map(venta => {
+      const totalPagado = venta.pagos.reduce((acc, pago) => acc + pago.monto, 0);
+      return {
+        ...venta.toObject(),
+        totalPagado // Agregar el total pagado a la venta
+      };
+    });
+
+    res.status(200).json(ventasConTotalPagado);
   } catch (error) {
     res.status(500).json({ message: 'Error al obtener las ventas pendientes', error });
   }
